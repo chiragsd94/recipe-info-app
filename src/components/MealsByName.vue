@@ -15,7 +15,14 @@
     rounded-xl p-2 m-2">
         <h1 class="text-lg text-slate-500">{{ meal.strMeal }}</h1>
         <img :src="meal.strMealThumb" />
-        <a :href="meal.strYoutube">Youtube</a>
+        <a 
+        class="bg-cyan-500 
+                    m-0.5 p-0.5
+                    rounded-xl 
+                    shadow-lg 
+                    shadow-cyan-700
+                    hover:bg-red-500"
+        :href="meal.strYoutube">Youtube</a>
         <ul>
             <li class="text-xl text-slate-500 m-2 p-2">Ingredients</li>
             <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient1 }} {{ meal.strMeasure1 }}</li>

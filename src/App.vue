@@ -15,7 +15,7 @@
   </router-link>
 </div>
 <div>
-  <router-link class="text-pink-500 text-xl" :to="{name:'home'}">Meals</router-link>
+  <router-link class="text-pink-500 text-xl" :to="{name:'home'}">Meals-Recipes</router-link>
 </div>
 <div>
   <router-link  :to="{name:'SearchMealByName'}">
