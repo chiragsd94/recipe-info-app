@@ -9,7 +9,7 @@
 </form>
 <div class="flex flex-wrap">
     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2" 
-    v-for="meal in computedMealData" :key="meal.idMeal">
+    v-for="meal in mealComputedData" :key="meal.idMeal">
     <div class="gap-1 shadow-xl 
     shadow-cyan-700 
     rounded-xl p-2 m-2">
@@ -54,12 +54,13 @@ import {useMealStore} from '../stores/MealStore'
 
 const store = useMealStore();
 const mealName = ref('');
-const computedMealData = computed(() => store.mealsData);
-const meal=mealName.value
+const mealNameData = ref([])
+const mealComputedData = computed(()=>{
+    return mealNameData.value = store.mealsData;
+})
 const handleSubmit = async ()=>{
-    await store.mealSearchByName(meal);
+    await store.mealSearchByName(mealName.value);
     mealName.value='';
-
 }
 
 </script>
