@@ -26,30 +26,7 @@
               Youtube
             </a>
 
-      <ul class="overflow-y-auto flex-1">
-            <li class="text-xl text-slate-500 m-2 p-2">Ingredients</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient1 }} {{ meal.strMeasure1 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient2 }} {{ meal.strMeasure2 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient3 }} {{ meal.strMeasure3 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient4 }} {{ meal.strMeasure4 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient5 }} {{ meal.strMeasure5 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient6 }} {{ meal.strMeasure6 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient7 }} {{ meal.strMeasure7 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient8 }} {{ meal.strMeasure8 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient9 }} {{ meal.strMeasure9 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient10 }} {{ meal.strMeasure10 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient11 }} {{ meal.strMeasure11 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient12 }} {{ meal.strMeasure12 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient13 }} {{ meal.strMeasure13 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient14 }} {{ meal.strMeasure14 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient15 }} {{ meal.strMeasure15 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient16 }} {{ meal.strMeasure16 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient17 }} {{ meal.strMeasure17 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient18 }} {{ meal.strMeasure18 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient19 }} {{ meal.strMeasure19 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient20 }} {{ meal.strMeasure20 }}</li>
-        </ul>
-
+    
 
             
             <!-- Ingredients -->
