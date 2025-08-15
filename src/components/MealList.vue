@@ -1,70 +1,64 @@
 <template>
-    <div>
-        <div v-if="isLoading" class="text-center p-4">
+  <div>
+    <div v-if="isLoading" class="text-center p-4">
       <p class="text-gray-500">Loading...</p>
     </div>
-        <div v-else>
-        <div class="flex flex-wrap">
-    <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2" 
-    v-for="meal in meals" :key="meal.idMeal">
-        <div class="gap-1 shadow-xl 
-    shadow-cyan-700 
-    rounded-xl p-2 m-2">
-        <h1 class="text-lg text-slate-500">{{ meal.strMeal }}</h1>
-        <img :src="meal.strMealThumb" />
-        <a class="bg-cyan-500 
-                    m-0.5 p-0.5
-                    rounded-xl 
-                    shadow-lg 
-                    shadow-cyan-700
-                    hover:bg-red-500"
-        :href="meal.strYoutube">Youtube</a>
-        <ul>
-            <li class="text-xl text-slate-500 m-2 p-2">Ingredients</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient1 }} {{ meal.strMeasure1 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient2 }} {{ meal.strMeasure2 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient3 }} {{ meal.strMeasure3 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient4 }} {{ meal.strMeasure4 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient5 }} {{ meal.strMeasure5 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient6 }} {{ meal.strMeasure6 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient7 }} {{ meal.strMeasure7 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient8 }} {{ meal.strMeasure8 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient9 }} {{ meal.strMeasure9 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient10 }} {{ meal.strMeasure10 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient11 }} {{ meal.strMeasure11 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient12 }} {{ meal.strMeasure12 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient13 }} {{ meal.strMeasure13 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient14 }} {{ meal.strMeasure14 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient15 }} {{ meal.strMeasure15 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient16 }} {{ meal.strMeasure16 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient17 }} {{ meal.strMeasure17 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient18 }} {{ meal.strMeasure18 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient19 }} {{ meal.strMeasure19 }}</li>
-            <li class="m-1 text-sm text-slate-500">{{ meal.strIngredient20 }} {{ meal.strMeasure20 }}</li>
-        </ul>
-        <h1 class="text-lg mb-2 m-2 p-2 text-slate-500">Instructions</h1>
-        <p class="text-sm text-slate-500 mt-2 mb-2 pt-2 pb-2">{{ meal.strInstructions }}</p>
+    <div v-else>
+      <div class="flex flex-wrap">
+        <div
+          class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
+          v-for="meal in meals"
+          :key="meal.idMeal"
+        >
+          <!-- Card container -->
+          <div
+            class="h-96 flex flex-col gap-2 shadow-xl shadow-cyan-700 rounded-xl p-2 m-2"
+          >
+            <h1 class="text-lg text-slate-500">{{ meal.strMeal }}</h1>
+            <img
+              :src="meal.strMealThumb"
+              class="h-40 w-full object-cover rounded"
+            />
+            <a
+              class="bg-cyan-500 m-0.5 p-0.5 rounded-xl shadow-lg shadow-cyan-700 hover:bg-red-500 text-center"
+              :href="meal.strYoutube"
+            >
+              Youtube
+            </a>
+            <!-- Ingredients -->
+            <ul class="overflow-y-auto flex-1">
+              <li class="text-xl text-slate-500 m-2">Ingredients</li>
+              <li v-for="i in 20" :key="i" class="m-1 text-sm text-slate-500">
+                {{ meal['strIngredient' + i] }} {{ meal['strMeasure' + i] }}
+              </li>
+            </ul>
+            <!-- Instructions -->
+            <h1 class="text-lg text-slate-500">Instructions</h1>
+            <p class="text-sm text-slate-500 overflow-y-auto">
+              {{ meal.strInstructions }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-    </div>
-</div>
-</div>
+  </div>
 </template>
 
 <script setup>
-import { onMounted,ref } from 'vue';
-import axios from 'axios'
+import { onMounted, ref } from "vue";
+import axios from "axios";
 
-const meals = ref([])
-const isLoading = ref(true)
-const onLoadData = async()=>{
-        const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=a';
-        const data = await axios.get(url);
-        meals.value = data.data.meals;
-    }
-onMounted(async ()=>{
-await onLoadData();
-isLoading.value = false
-})
+const meals = ref([]);
+const isLoading = ref(true);
 
+const onLoadData = async () => {
+  const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=a";
+  const data = await axios.get(url);
+  meals.value = data.data.meals;
+};
+
+onMounted(async () => {
+  await onLoadData();
+  isLoading.value = false;
+});
 </script>
